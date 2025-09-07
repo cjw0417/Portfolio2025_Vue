@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+# Auto detect text files and perform LF normalization
+* text=auto
+=======
+* text=auto eol=lf
+>>>>>>> e1ce041 (first commit)
