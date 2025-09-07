@@ -441,7 +441,7 @@
   }
   .project_img {
     max-width: 85vw;
-    max-height: 70%;
+    max-height: 60%;
   }
   .project_card h3 {
     font-size: 1rem;
@@ -511,7 +511,7 @@
   }
   .nhpay_img {
     max-width: 120px;
-    max-height: 180px;
+    max-height: 150px;
   }
 }
 
