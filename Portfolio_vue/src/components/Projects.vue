@@ -1,16 +1,19 @@
 // ...existing code...
 <template>
   <section class="projects">
+    <div class="project_tip">Slide / Scroll "Cards" to see more projects</div>
     <div class="project_stack" ref="stackRef">
       <div
         v-for="(project, idx) in projects"
-        :key="project.title"
+        :key="idx"
         class="project_card"
         :class="{ active: idx === current, stacked: idx < current }"
         :style="{ zIndex: idx + 1 }"
+        @click="handleCardClick(idx)"
+        style="cursor: pointer"
       >
         <!-- NH Pay 프로젝트일 때만 목업 슬라이드 -->
-        <template v-if="project.title === '농협 NH Pay 다국어'">
+        <template v-if="project.title === 'NH Pay 다국어 프로젝트'">
           <div class="nhpay-mockup-slider">
             <img
               :src="nhpayMockups[nhpayCurrent]"
@@ -26,12 +29,13 @@
           :alt="project.title + ' 이미지'"
           class="project_img"
         />
-        <h3>{{ project.title }}</h3>
+        <h3 v-html="project.title"></h3>
+        <h4 v-html="project.subtit"></h4>
       </div>
     </div>
     <div class="project_desc_area">
       <p class="project_desc">{{ projects[current].desc }}</p>
-      <div class="project_tip">wheel / swipe to show more</div>
+      <p class="project_desc2">{{ projects[current].desc2 }}</p>
     </div>
   </section>
 </template>
@@ -42,19 +46,36 @@ import { ref, onMounted, watch } from 'vue'
 const projects = [
   {
     title: '신한카드 운영',
-    desc: '신한카드 웹사이트 유지보수 및 신규 서비스 퍼블리싱',
+    subtit: '2022.04 ~ 2024.12',
+    desc: '신한카드 웹 유지보수 운영 및 신규 서비스 퍼블리싱',
+    desc2: '#HTML · #CSS · #JavaScript · #jQuery · #Figma · #Swiper',
     img: '/shinhancard.png',
+    url: 'https://www.shinhancard.com',
   },
   {
-    title: '비대면 신분증 인증',
+    title: '카드신청 비대면 신분증 인증',
+    subtit: '2024.05 ~ 2024.11',
     desc: '비대면 신분증 인증 시스템 UI/UX 퍼블리싱',
+    desc2: '#HTML · #CSS · #JavaScript · #jQuery · #Figma',
     img: '/OCR.png',
+    url: '/OCR/main.html',
   },
-  { title: '페이지 리뉴얼', desc: '기업 홈페이지 리뉴얼 퍼블리싱', img: '/m4a.png' },
   {
-    title: '농협 NH Pay 다국어',
+    title: '사내 페이지 리뉴얼',
+    subtit: '2025.12 ~ 2025.03',
+    desc: '홈페이지 리뉴얼 퍼블리싱',
+    desc2: '#HTML · #CSS · #JavaScript · #jQuery · #Figma',
+    img: '/m4a.png',
+    url: 'https://m4a.co.kr',
+  },
+  {
+    title: 'NH Pay 다국어 프로젝트',
+    subtit: '2025.03 ~ 현재',
     desc: 'NH Pay 글로벌 서비스 다국어 퍼블리싱',
-    img: null, // 이미지 직접 사용하지 않음
+    desc2: '#다국어, #Vue.js, #SCSS',
+
+    img: null,
+    url: null,
   },
 ]
 
@@ -77,6 +98,18 @@ const next = () => {
 }
 const prev = () => {
   if (current.value > 0) current.value--
+}
+
+const handleCardClick = (idx) => {
+  const url = projects[idx].url
+  if (url) {
+    if (url === '/OCR/main.html') {
+      // 모바일 사이즈 새 창(360x740)
+      window.open(url, '_blank', 'width=380,height=760')
+    } else {
+      window.open(url, '_blank')
+    }
+  }
 }
 
 // NH Pay 목업 자동 슬라이드

@@ -15,7 +15,7 @@
     :keyboard="{ enabled: true }"
     :speed="1200"
     class="portfolio-swiper"
-    @swiper="(swiper) => (swiperInstance.value = swiper)"
+    @swiper="onSwiper"
   >
     <swiper-slide><Intro /></swiper-slide>
     <swiper-slide><About /></swiper-slide>
@@ -44,6 +44,10 @@ const menu = [
   { name: 'Projects', index: 2 },
   { name: 'Contact', index: 3 },
 ]
+
+const onSwiper = (swiper) => {
+  swiperInstance.value = swiper
+}
 
 const goToSlide = (idx) => {
   if (swiperInstance.value && typeof swiperInstance.value.slideTo === 'function') {
