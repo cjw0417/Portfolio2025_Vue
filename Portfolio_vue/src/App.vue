@@ -20,7 +20,6 @@
     <swiper-slide><Intro /></swiper-slide>
     <swiper-slide><About /></swiper-slide>
     <swiper-slide><Projects /></swiper-slide>
-    <swiper-slide><Process /></swiper-slide>
     <swiper-slide><Contact /></swiper-slide>
   </swiper>
 </template>
@@ -36,7 +35,6 @@ import 'swiper/css/keyboard'
 import Intro from './components/Intro.vue'
 import About from './components/About.vue'
 import Projects from './components/Projects.vue'
-import Process from './components/Process.vue'
 import Contact from './components/Contact.vue'
 
 const swiperInstance = ref(null)
@@ -44,8 +42,7 @@ const menu = [
   { name: 'Intro', index: 0 },
   { name: 'About', index: 1 },
   { name: 'Projects', index: 2 },
-  { name: 'Process', index: 3 },
-  { name: 'Contact', index: 4 },
+  { name: 'Contact', index: 3 },
 ]
 
 const goToSlide = (idx) => {

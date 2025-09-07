@@ -3,6 +3,12 @@
   width: 100%;
   height: 100vh;
 }
+.intro,
+.about,
+.projects,
+.contact {
+  padding: 60px 24px;
+}
 .gnb {
   position: fixed;
   top: 0;
@@ -13,31 +19,61 @@
   display: flex;
   align-items: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
+
 .gnb-title {
   font-weight: bold;
   font-size: 1.3rem;
-  margin-left: 32px;
-  margin-right: 48px;
+  margin-left: 0;
+  margin-right: 24px;
   letter-spacing: 2px;
+  white-space: nowrap;
 }
+
 .gnb ul {
   display: flex;
-  gap: 32px;
+  gap: 16px;
   margin: 0;
-  padding: 16px 0;
+  padding: 12px 0;
   list-style: none;
+  flex-wrap: wrap;
 }
+
 .gnb button {
   background: none;
   border: none;
   font-size: 1rem;
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 8px 12px;
   transition: color 0.2s;
+  white-space: nowrap;
 }
+
 .gnb button:hover {
   color: #007bff;
+}
+
+@media (max-width: 1200px) {
+  .gnb {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .gnb-title {
+    font-size: 1.05rem;
+    margin-right: 12px;
+  }
+  .gnb ul {
+    gap: 8px;
+    padding: 8px 0;
+  }
+  .gnb button {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+  }
 }
 
 /* intro */
@@ -93,6 +129,15 @@
   transform: translateY(0) !important;
 }
 
+@media (max-width: 1200px) {
+  .intro_tit {
+    font-size: 2.5rem;
+  }
+  .intro_txt {
+    font-size: 1rem;
+  }
+}
+
 /* about */
 .about {
   display: flex;
@@ -102,21 +147,15 @@
   min-height: 100vh;
   background: linear-gradient(100deg, #f5f7fa 0%, #c3e6e5 100%);
   color: #222;
-  padding: 40px 0;
+}
+.about_photo {
+  width: 150px;
 }
 .about_profile {
   display: flex;
   align-items: center;
   gap: 32px;
-  margin-bottom: 32px;
-}
-.about_photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: #eee;
-  border: 2px solid #b2dfdb;
+  margin-bottom: 24px;
 }
 .about_name {
   font-size: 2rem;
@@ -126,17 +165,30 @@
 .about_role {
   font-size: 1.1rem;
   color: #007bff;
-  margin: 4px 0;
+  margin: 4px 0 0 0;
+}
+.about_intro {
+  max-width: 500px;
+  text-align: left;
+  margin-bottom: 32px;
+}
+.about_intro p {
+  font-size: 1.2rem;
+  line-height: 1.7;
 }
 .about_slogan {
-  font-size: 1rem;
-  color: #666;
-  margin: 0;
+  font-weight: bold;
+  color: #17494d;
+  margin-top: 18px;
+}
+.highlight {
+  color: #009688;
+  font-weight: bold;
 }
 .about_section {
   margin-bottom: 24px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   text-align: left;
 }
 .about_section h3 {
@@ -144,31 +196,18 @@
   margin-bottom: 8px;
   color: #007bff;
 }
-.about_career,
-.about_skills,
-.about_values {
+.about_career {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-}
-.about_career {
   flex-direction: column;
   gap: 4px;
-}
-.about_skills li,
-.about_values li {
-  background: #e0f7fa;
-  border-radius: 16px;
-  padding: 4px 14px;
-  font-size: 0.98rem;
 }
 .about_skills_icon {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px 32px;
+  gap: 8px 16px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -193,5 +232,64 @@
 }
 .about_skills_icon span {
   vertical-align: middle;
-  font-size: 1.05rem;
+  font-size: 1rem;
+}
+.about_values {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.about_values li {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 8px 12px;
+  font-size: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .about_profile {
+    margin-bottom: 12px;
+  }
+  .about_photo {
+    width: 100px;
+  }
+  .about_name {
+    font-size: 1.3rem;
+  }
+  .about_role {
+    font-size: 0.8rem;
+  }
+  .about_slogan {
+    margin-top: 10px;
+  }
+
+  .about_intro {
+    margin-bottom: 16px;
+  }
+
+  .about_intro p {
+    font-size: 0.8rem;
+  }
+  .about_section {
+    margin-bottom: 16px;
+  }
+
+  .about_section h3 {
+    font-size: 0.8rem;
+  }
+  .about_section .about_career {
+    font-size: 0.8rem;
+  }
+  .about_skills_icon span {
+    font-size: 0.6rem;
+  }
+  .about_skills_icon img {
+    width: 16px;
+    height: 16px;
+  }
+  .about_values li {
+    font-size: 0.7rem;
+  }
 }

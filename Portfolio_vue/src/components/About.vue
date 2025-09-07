@@ -1,13 +1,22 @@
 <template>
   <section class="about">
     <div class="about_profile">
-      <!-- 프로필 이미지가 있다면 public/profile.jpg 등으로 교체 -->
-      <!-- <img class="about_photo" src="/profile.jpg" alt="조재우 프로필" /> -->
+      <img class="about_photo" src="/profile.jpg" alt="조재우 프로필" />
       <div>
         <h2 class="about_name">조재우</h2>
         <p class="about_role">웹 퍼블리셔 (4년차)</p>
-        <p class="about_slogan">"사용자와 소통하는 UI/UX를 만듭니다."</p>
       </div>
+    </div>
+    <div class="about_intro">
+      <p>
+        안녕하세요.<br />
+        실무에 강한 퍼블리셔 <span class="highlight">조재우</span>입니다.
+      </p>
+      <p>
+        4년차 웹 퍼블리셔로, 사용자 중심의 UI/UX와 효율적인 협업을 중요하게 생각합니다.<br />
+        반응형 웹, 퍼포먼스 최적화 기술에 자신 있습니다.
+      </p>
+      <p class="about_slogan">"끝까지 책임지는 퍼블리셔로 성장하겠습니다."</p>
     </div>
     <div class="about_section">
       <h3>주요 경력</h3>
@@ -81,6 +90,4 @@
   </section>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
