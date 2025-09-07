@@ -49,7 +49,7 @@ const projects = [
     subtit: '2022.04 ~ 2024.12',
     desc: '신한카드 웹 유지보수 운영 및 신규 서비스 퍼블리싱',
     desc2: '#HTML · #CSS · #JavaScript · #jQuery · #Figma · #Swiper',
-    img: '/shinhancard.png',
+    img: '/Portfolio2025_Vue/shinhancard.png',
     url: 'https://www.shinhancard.com',
   },
   {
@@ -57,15 +57,15 @@ const projects = [
     subtit: '2024.05 ~ 2024.11',
     desc: '비대면 신분증 인증 시스템 UI/UX 퍼블리싱',
     desc2: '#HTML · #CSS · #JavaScript · #jQuery · #Figma',
-    img: '/OCR.png',
-    url: '/OCR/main.html',
+    img: '/Portfolio2025_Vue/OCR.png',
+    url: '/Portfolio2025_Vue/OCR/main.html',
   },
   {
     title: '사내 페이지 리뉴얼',
     subtit: '2025.12 ~ 2025.03',
     desc: '홈페이지 리뉴얼 퍼블리싱',
     desc2: '#HTML · #CSS · #JavaScript · #jQuery · #Figma',
-    img: '/m4a.png',
+    img: '/Portfolio2025_Vue/m4a.png',
     url: 'https://m4a.co.kr',
   },
   {
@@ -80,11 +80,11 @@ const projects = [
 ]
 
 const nhpayMockups = [
-  ' /Portfolio2025_Vue/NHPay_mockup1.png ',
-  ' /Portfolio2025_Vue/NHPay_mockup2.png ',
-  ' /Portfolio2025_Vue/NHPay_mockup3.png ',
-  ' /Portfolio2025_Vue/NHPay_mockup4.png ',
-  ' /Portfolio2025_Vue/NHPay_mockup5.png ',
+  '/Portfolio2025_Vue/NHPay_mockup1.png',
+  '/Portfolio2025_Vue/NHPay_mockup2.png',
+  '/Portfolio2025_Vue/NHPay_mockup3.png',
+  '/Portfolio2025_Vue/NHPay_mockup4.png',
+  '/Portfolio2025_Vue/NHPay_mockup5.png',
 ]
 const nhpayCurrent = ref(0)
 let nhpayTimer = null
@@ -103,7 +103,7 @@ const prev = () => {
 const handleCardClick = (idx) => {
   const url = projects[idx].url
   if (url) {
-    if (url === '/OCR/main.html') {
+    if (url === '/Portfolio2025_Vue/OCR/main.html') {
       // 모바일 사이즈 새 창(360x740)
       window.open(url, '_blank', 'width=380,height=760')
     } else {
@@ -128,7 +128,7 @@ function stopNhpaySlider() {
 
 watch(current, (val) => {
   // NH Pay 카드일 때만 슬라이드 시작
-  if (projects[val].title === '농협 NH Pay 다국어') {
+  if (projects[val].title === 'NH Pay 다국어 프로젝트') {
     startNhpaySlider()
   } else {
     stopNhpaySlider()
@@ -163,7 +163,7 @@ onMounted(() => {
     else if (endX - startX > 30) prev()
   })
   // 최초 진입 시 NH Pay면 슬라이드 시작
-  if (projects[current.value].title === '농협 NH Pay 다국어') {
+  if (projects[current.value].title === 'NH Pay 다국어 프로젝트') {
     startNhpaySlider()
   }
 })
