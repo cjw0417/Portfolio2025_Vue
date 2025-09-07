@@ -57,7 +57,7 @@
   color: #007bff;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .gnb {
     padding-left: 8px;
     padding-right: 8px;
@@ -129,7 +129,7 @@
   transform: translateY(0) !important;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .intro_tit {
     font-size: 2.5rem;
   }
@@ -248,12 +248,12 @@
   font-size: 1rem;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .about_profile {
     margin-bottom: 12px;
   }
   .about_photo {
-    width: 100px;
+    width: 80px;
   }
   .about_name {
     font-size: 1.3rem;

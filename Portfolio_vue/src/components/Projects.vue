@@ -4,6 +4,7 @@
     <swiper :slides-per-view="1" :loop="true" :autoplay="{ delay: 2500 }" class="inner-swiper">
       <swiper-slide class="project">신한카드 운영</swiper-slide>
       <swiper-slide class="project">비대면 신분증 인증</swiper-slide>
+      <swiper-slide class="project">페이지 리뉴얼</swiper-slide>
       <swiper-slide class="project">농협 NH Pay 다국어</swiper-slide>
     </swiper>
   </section>
