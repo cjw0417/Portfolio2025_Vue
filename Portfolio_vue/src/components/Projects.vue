@@ -80,11 +80,11 @@ const projects = [
 ]
 
 const nhpayMockups = [
-  '/NHPay_mockup1.png',
-  '/NHPay_mockup2.png',
-  '/NHPay_mockup3.png',
-  '/NHPay_mockup4.png',
-  '/NHPay_mockup5.png',
+  ' /Portfolio2025_Vue/NHPay_mockup1.png ',
+  ' /Portfolio2025_Vue/NHPay_mockup2.png ',
+  ' /Portfolio2025_Vue/NHPay_mockup3.png ',
+  ' /Portfolio2025_Vue/NHPay_mockup4.png ',
+  ' /Portfolio2025_Vue/NHPay_mockup5.png ',
 ]
 const nhpayCurrent = ref(0)
 let nhpayTimer = null
