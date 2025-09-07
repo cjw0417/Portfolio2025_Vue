@@ -13,6 +13,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #999;
+  background: #ddd;
 }
 </style>
