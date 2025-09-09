@@ -1,5 +1,7 @@
 /* main */
-html, body, #app {
+html,
+body,
+#app {
   height: 100%;
 }
 
@@ -24,6 +26,160 @@ html, body, #app {
 }
 
 /* gnb */
+.gnb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.92) 80%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  z-index: 1000;
+}
+.gnb_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  position: relative;
+}
+.gnb_title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+.gnb_menu_pc {
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.gnb button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* 햄버거 버튼 */
+.gnb_hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: 1rem;
+}
+.gnb_hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #222;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* 오버레이 메뉴 */
+.gnb_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #b7eaff 0%, #e0c3fc 100%);
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 5rem 2rem 2rem 2rem;
+  will-change: transform, opacity;
+}
+.gnb_overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+.gnb_overlay button {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #222;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.gnb_overlay button:hover {
+  color: #66aaff;
+  transform: scale(1.08);
+}
+
+.gnb_overlay button.gnb_close {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: #222;
+  cursor: pointer;
+  z-index: 2100;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s;
+}
+.gnb_close:hover {
+  color: #66aaff;
+}
+
+/* 트랜지션: 왼쪽에서 오른쪽으로 */
+.gnb_overlay_slide-enter-active,
+.gnb_overlay_slide-leave-active {
+  transition:
+    transform 0.35s cubic-bezier(0.77, 0, 0.175, 1),
+    opacity 0.25s;
+}
+.gnb_overlay_slide-enter-from,
+.gnb_overlay_slide-leave-to {
+  transform: translateX(-100vw);
+  opacity: 0;
+}
+.gnb_overlay_slide-enter-to,
+.gnb_overlay_slide-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+@media (max-width: 1000px) {
+  .gnb_inner {
+    padding: 0.5rem 1rem;
+  }
+  .gnb_hamburger {
+    display: flex;
+  }
+  .gnb_menu_pc {
+    display: none;
+  }
+}
 
 /* intro */
 .intro {
@@ -42,20 +198,6 @@ html, body, #app {
   margin-bottom: 30px;
   line-height: 1;
   letter-spacing: -2px;
-}
-.intro_txt {
-  font-size: 1.2rem;
-  line-height: 1.4;
-  color: #444;
-}
-
-.highlight {
-  color: #007bff;
-  font-weight: bold;
-}
-
-/* intro animation */
-.intro_tit {
   opacity: 0;
   transform: translateY(-80px);
   transition:
@@ -63,6 +205,9 @@ html, body, #app {
     transform 1s;
 }
 .intro_txt {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #444;
   opacity: 0;
   transform: translateY(80px);
   transition:
@@ -85,6 +230,12 @@ html, body, #app {
   .intro_txt {
     font-size: 1rem;
   }
+}
+
+/* highlight - 중복 선언 제거 */
+.highlight {
+  color: #007bff;
+  font-weight: bold;
 }
 
 /* about */
@@ -129,10 +280,6 @@ html, body, #app {
   font-weight: bold;
   color: #17494d;
   margin-top: 18px;
-}
-.highlight {
-  color: #009688;
-  font-weight: bold;
 }
 .about_section {
   margin-bottom: 24px;
@@ -213,18 +360,15 @@ html, body, #app {
   .about_slogan {
     margin-top: 10px;
   }
-
   .about_intro {
     margin-bottom: 16px;
   }
-
   .about_intro p {
     font-size: 0.7rem;
   }
   .about_section {
     margin-bottom: 16px;
   }
-
   .about_section h3 {
     font-size: 0.7rem;
   }
@@ -390,7 +534,6 @@ html, body, #app {
   .project_card h3 {
     font-size: 1rem;
   }
-
   .projects {
     padding-top: 80px;
   }
@@ -400,11 +543,9 @@ html, body, #app {
   .project_desc {
     font-size: 0.8rem;
   }
-
   .project_desc2 {
     font-size: 0.8rem;
   }
-
   .project_tip {
     font-size: 0.8rem;
     font-weight: bold;
