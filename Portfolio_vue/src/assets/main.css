@@ -368,6 +368,7 @@ body,
   }
   .about_section {
     margin-bottom: 16px;
+    padding: 0 24px;
   }
   .about_section h3 {
     font-size: 0.7rem;
