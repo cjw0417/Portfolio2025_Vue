@@ -1,4 +1,8 @@
 /* main */
+html, body, #app {
+  height: 100%;
+}
+
 .portfolio-swiper {
   width: 100%;
   height: 100vh;
@@ -17,76 +21,9 @@
   .contact {
     padding: 70px 12px;
   }
-  
 }
 
-.gnb {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.9);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  padding-left: 16px;
-  padding-right: 16px;
-  box-sizing: border-box;
-  overflow-x: auto;
-}
-
-.gnb-title {
-  font-weight: bold;
-  font-size: 1.3rem;
-  margin-left: 0;
-  margin-right: 24px;
-  letter-spacing: 2px;
-  white-space: nowrap;
-}
-
-.gnb ul {
-  display: flex;
-  gap: 16px;
-  margin: 0;
-  padding: 12px 0;
-  list-style: none;
-  flex-wrap: wrap;
-}
-
-.gnb button {
-  background: none;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 8px 12px;
-  transition: color 0.2s;
-  white-space: nowrap;
-}
-
-.gnb button:hover {
-  color: #007bff;
-}
-
-@media (max-width: 1280px) {
-  .gnb {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-  .gnb-title {
-    font-size: 1.05rem;
-    margin-right: 12px;
-  }
-  .gnb ul {
-    gap: 2px;
-    padding: 8px 0;
-  }
-  .gnb button {
-    font-size: 0.7rem;
-    padding: 6px 8px;
-  }
-}
+/* gnb */
 
 /* intro */
 .intro {
@@ -454,7 +391,7 @@
     font-size: 1rem;
   }
 
-  .projects{
+  .projects {
     padding-top: 80px;
   }
   .project_card h4 {
@@ -477,7 +414,6 @@
     margin-top: 12px;
     letter-spacing: 0.5px;
   }
-
 }
 
 /* NH Pay */
