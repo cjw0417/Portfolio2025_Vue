@@ -1,12 +1,5 @@
 <template>
-  <nav class="gnb">
-    <div class="gnb-title">Portfolio</div>
-    <ul>
-      <li v-for="item in menu" :key="item.index">
-        <button @click="goToSlide(item.index)">{{ item.name }}</button>
-      </li>
-    </ul>
-  </nav>
+  <Gnb :goToSlide="goToSlide" />
   <swiper
     :modules="[Mousewheel, Keyboard]"
     direction="vertical"
@@ -36,6 +29,7 @@ import Intro from './components/Intro.vue'
 import About from './components/About.vue'
 import Projects from './components/Projects.vue'
 import Contact from './components/Contact.vue'
+import Gnb from './components/Gnb.vue'
 
 const swiperInstance = ref(null)
 const menu = [
