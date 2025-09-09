@@ -7,8 +7,19 @@
 .about,
 .projects,
 .contact {
-  padding: 60px 24px;
+  padding: 80px 24px;
 }
+
+@media (max-width: 1280px) {
+  .intro,
+  .about,
+  .projects,
+  .contact {
+    padding: 70px 12px;
+  }
+  
+}
+
 .gnb {
   position: fixed;
   top: 0;
@@ -68,7 +79,7 @@
     margin-right: 12px;
   }
   .gnb ul {
-    gap: 8px;
+    gap: 2px;
     padding: 8px 0;
   }
   .gnb button {
@@ -271,27 +282,27 @@
   }
 
   .about_intro p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .about_section {
     margin-bottom: 16px;
   }
 
   .about_section h3 {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .about_section .about_career {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .about_skills_icon span {
     font-size: 0.6rem;
   }
   .about_skills_icon img {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
   .about_values li {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -323,7 +334,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 92vw;
+  width: 80vw;
   max-width: 1000px;
   height: 100%;
   max-height: 700px;
@@ -344,7 +355,7 @@
 }
 
 .project_img {
-  max-width: 90%;
+  max-width: 65%;
   height: auto;
   object-fit: contain;
   display: block;
@@ -426,22 +437,26 @@
     height: 44vh;
     min-height: 180px;
     max-height: 340px;
+    margin-top: 24px;
   }
   .project_card,
   .project_desc_area {
     max-width: 98vw;
     min-width: 0;
     height: 90%;
-    max-height: 35vh;
+    max-height: 20vh;
   }
   .project_img {
-    max-width: 85vw;
-    max-height: 70%;
+    max-width: 75vw;
+    max-height: 60%;
   }
   .project_card h3 {
     font-size: 1rem;
   }
 
+  .projects{
+    padding-top: 80px;
+  }
   .project_card h4 {
     font-size: 0.8rem;
   }
@@ -452,6 +467,17 @@
   .project_desc2 {
     font-size: 0.8rem;
   }
+
+  .project_tip {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #0b6158;
+    opacity: 0.7;
+    text-align: center;
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+  }
+
 }
 
 /* NH Pay */
@@ -492,7 +518,7 @@
   }
   .nhpay_img {
     max-width: 120px;
-    max-height: 180px;
+    max-height: 150px;
   }
 }
 
@@ -555,7 +581,7 @@
 }
 @media (max-width: 1280px) {
   .contact_title {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .contact_email {
     font-size: 1.5rem;
@@ -568,6 +594,11 @@
     margin-top: 0;
   }
   .contact_desc {
-    font-size: 1rem;
+    font-size: 0.8rem;
+  }
+  .contact_mail,
+  .contact_call {
+    font-size: 0.7rem;
+    padding: 8px 10px;
   }
 }
