@@ -1,18 +1,22 @@
 <template>
   <nav class="gnb">
     <div class="gnb_inner">
-      <div class="gnb_title">Menu</div>
+      <div class="gnb_title" @click="goToMain" style="cursor: pointer">Menu</div>
       <button class="gnb_hamburger" @click="toggleMenu" aria-label="메뉴 열기" v-show="isMobile">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <transition name="gnb_overlay_fade">
+      <transition name="gnb_overlay_slide">
         <div v-if="menuOpen && isMobile" class="gnb_overlay">
           <button class="gnb_close" @click="toggleMenu" aria-label="메뉴 닫기">&times;</button>
           <ul>
             <li v-for="item in menu" :key="item.index">
               <button @click="handleMenuClick(item.index)">
+                <span v-if="item.name === 'Intro'">🏠</span>
+                <span v-else-if="item.name === 'About'">👤</span>
+                <span v-else-if="item.name === 'Projects'">💼</span>
+                <span v-else-if="item.name === 'Contact'">✉️</span>
                 {{ item.name }}
               </button>
             </li>
@@ -57,6 +61,12 @@ const toggleMenu = () => {
 
 const handleMenuClick = (idx) => {
   props.goToSlide(idx)
+  if (isMobile.value) menuOpen.value = false
+}
+
+// gnb_title 클릭 시 메인(인트로)로 이동
+const goToMain = () => {
+  props.goToSlide(0)
   if (isMobile.value) menuOpen.value = false
 }
 
@@ -134,12 +144,15 @@ onBeforeUnmount(() => {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(255,255,255,0.97);
+  background: linear-gradient(135deg, #b7eaff 0%, #e0c3fc 100%);
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.1);
   z-index: 2000;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 3rem 2rem 2rem 3rem;
+  will-change: transform, opacity;
 }
 .gnb_overlay ul {
   list-style: none;
@@ -148,6 +161,7 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  align-items: flex-start;
 }
 .gnb_overlay button {
   font-size: 2rem;
@@ -156,16 +170,21 @@ onBeforeUnmount(() => {
   border: none;
   cursor: pointer;
   color: #222;
-  transition: color 0.2s;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
 }
 .gnb_overlay button:hover {
-  color: #0078ff;
+  color: #66aaff;
+  transform: scale(1.08);
 }
 
-/* 닫기 버튼 */
 .gnb_close {
   position: absolute;
-  top: 2rem;
+  top: 1.5rem;
   right: 2rem;
   font-size: 3rem;
   background: none;
@@ -178,20 +197,27 @@ onBeforeUnmount(() => {
   transition: color 0.2s;
 }
 .gnb_close:hover {
-  color: #0078ff;
+  color: #66aaff;
 }
 
-/* 트랜지션 */
-.gnb_overlay_fade-enter-active,
-.gnb_overlay_fade-leave-active {
-  transition: opacity 0.25s;
+/* 트랜지션: 왼쪽에서 오른쪽으로 */
+.gnb_overlay_slide-enter-active,
+.gnb_overlay_slide-leave-active {
+  transition:
+    transform 0.35s cubic-bezier(0.77, 0, 0.175, 1),
+    opacity 0.25s;
 }
-.gnb_overlay_fade-enter-from,
-.gnb_overlay_fade-leave-to {
+.gnb_overlay_slide-enter-from,
+.gnb_overlay_slide-leave-to {
+  transform: translateX(-100vw);
   opacity: 0;
 }
+.gnb_overlay_slide-enter-to,
+.gnb_overlay_slide-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
 
-/* 모바일 스타일 */
 @media (max-width: 1000px) {
   .gnb_inner {
     padding: 0.5rem 1rem;
